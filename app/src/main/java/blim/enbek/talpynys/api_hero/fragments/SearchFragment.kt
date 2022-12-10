@@ -49,6 +49,7 @@ class SearchFragment : Fragment() {
             else{
                 binding.searchFragmentInformation.visibility = View.VISIBLE
                 getRequestAPIWithSearch(getEditText())
+                updateInformation()
             }
         }
 
@@ -64,7 +65,8 @@ class SearchFragment : Fragment() {
         val queue = Volley.newRequestQueue(context)
         val stringRequest = StringRequest(
             Request.Method.GET, url, {
-                    result -> parseInformationJSON(result)
+                    result ->
+                dataFromJSONatAPI(JSONObject(result))
             },
             {
                     error -> Log.d("TestLog", "error API: $error")
@@ -74,44 +76,44 @@ class SearchFragment : Fragment() {
         queue.add(stringRequest)
     }
 
-    fun parseInformationJSON(result: String) {
-        val jsonObject = JSONObject(result)
-
-        val urlImage = jsonObject.getJSONObject("images").getString("lg").toString()
-        Picasso.get().load(urlImage).into(binding.heroImageS)
-
-        binding.heroNameS.text = jsonObject.getString("name")
-        binding.heroIntelligenceS.text =
-            jsonObject.getJSONObject("powerstats")
-                .getString("intelligence")
-        binding.heroStrengthS.text =
-            jsonObject.getJSONObject("powerstats")
-                .getString("strength")
-
-        binding.heroSpeedS.text =
-            jsonObject.getJSONObject("powerstats")
-                .getString("speed")
-
-        binding.heroPowerS.text =
-            jsonObject.getJSONObject("powerstats")
-                .getString("power")
-
-        binding.heroGenderS.text =
-            jsonObject.getJSONObject("appearance")
-                .getString("gender")
-        binding.heroRaceS.text =
-            jsonObject.getJSONObject("appearance")
-                .getString("race")
-        binding.heroHeightS.text =
-            jsonObject.getJSONObject("appearance")
-                .getJSONArray("height")[1].toString()
-        binding.heroWeightS.text =
-            jsonObject.getJSONObject("appearance")
-                .getJSONArray("weight")[1].toString()
-
-        binding.heroPublisherS.text= jsonObject.getJSONObject("biography").getString("publisher")
-
-    }
+//    fun parseInformationJSON(result: String) {
+//        val jsonObject = JSONObject(result)
+//
+//        val urlImage = jsonObject.getJSONObject("images").getString("lg").toString()
+//        Picasso.get().load(urlImage).into(binding.heroImageS)
+//
+//        binding.heroNameS.text = jsonObject.getString("name")
+//        binding.heroIntelligenceS.text =
+//            jsonObject.getJSONObject("powerstats")
+//                .getString("intelligence")
+//        binding.heroStrengthS.text =
+//            jsonObject.getJSONObject("powerstats")
+//                .getString("strength")
+//
+//        binding.heroSpeedS.text =
+//            jsonObject.getJSONObject("powerstats")
+//                .getString("speed")
+//
+//        binding.heroPowerS.text =
+//            jsonObject.getJSONObject("powerstats")
+//                .getString("power")
+//
+//        binding.heroGenderS.text =
+//            jsonObject.getJSONObject("appearance")
+//                .getString("gender")
+//        binding.heroRaceS.text =
+//            jsonObject.getJSONObject("appearance")
+//                .getString("race")
+//        binding.heroHeightS.text =
+//            jsonObject.getJSONObject("appearance")
+//                .getJSONArray("height")[1].toString()
+//        binding.heroWeightS.text =
+//            jsonObject.getJSONObject("appearance")
+//                .getJSONArray("weight")[1].toString()
+//
+//        binding.heroPublisherS.text= jsonObject.getJSONObject("biography").getString("publisher")
+//
+//    }
     fun dataFromJSONatAPI(jsonObject: JSONObject){
         val data = DataAPI(
             jsonObject.getString("id"),
@@ -135,7 +137,14 @@ class SearchFragment : Fragment() {
             heroNameS.text = it.name
             Picasso.get().load(it.url).into(heroImageS)
             heroIntelligenceS.text =it.intelligence
-            heroStrengthS
+            heroStrengthS.text=it.strength
+            heroSpeedS.text= it.speed
+            heroPowerS.text = it.power
+            heroGenderS.text = it.gender
+            heroRaceS.text =it.race
+            heroHeightS.text = it.height
+            heroWeightS.text = it.weight
+            heroPublisherS.text = it.publisher
         }
 
     }

@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import blim.enbek.talpynys.api_hero.DataViewModel
 import blim.enbek.talpynys.api_hero.R
 import blim.enbek.talpynys.api_hero.databinding.FragmentMainBinding
 import com.android.volley.Request
@@ -22,7 +24,7 @@ class MainFragment : Fragment() {
             MainFragment()
     }
     private lateinit var binding: FragmentMainBinding
-
+    private val viewModel:DataViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,6 +47,21 @@ class MainFragment : Fragment() {
         }
 
     }
+//    fun updateInformation() = with(binding){
+//        viewModel.dataFromJSON.observe(viewLifecycleOwner){
+//            heroNameS.text = it.name
+//            Picasso.get().load(it.url).into(mainImage)
+//            heroIntelligenceS.text =it.intelligence
+//            heroStrengthS.text=it.strength
+//            heroSpeedS.text= it.speed
+//            heroId.text = it.power
+//            heroGenderS.text = it.gender
+//            heroRaceS.text =it.race
+//            heroHeightS.text = it.height
+//            heroPublisherS.text = it.publisher
+//        }
+//
+//    }
 
     fun getRequestAPI(randomNumber:Int){
         val url ="https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/$randomNumber.json"
