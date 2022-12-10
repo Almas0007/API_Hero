@@ -28,14 +28,22 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMainBinding.inflate(layoutInflater,container,false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.mainFragmentInformation.visibility=View.INVISIBLE
+        binding.mainId.visibility = View.INVISIBLE
+        binding.heroId.visibility = View.INVISIBLE
         binding.randomButton.setOnClickListener {
+            getRequestAPI((1..734).random())
+            binding.mainFragmentInformation.visibility = View.VISIBLE
+            binding.mainId.visibility = View.VISIBLE
+            binding.heroId.visibility = View.VISIBLE
+        }
 
-            getRequestAPI((1..734).random())}
     }
 
     fun getRequestAPI(randomNumber:Int){
@@ -59,10 +67,31 @@ class MainFragment : Fragment() {
         val jsonObject = JSONObject(result)
         val urlImage = jsonObject.getJSONObject("images").getString("lg").toString()
         binding.heroId.text = jsonObject.getString("id").toString()
-        binding.heroName.text = jsonObject.getString("name").toString()
-        binding.heroFullName.text = jsonObject.getJSONObject("biography").getString("fullName").toString()
-
         Picasso.get().load(urlImage).into(binding.mainImage)
+
+        binding.heroNameS.text = jsonObject.getString("name")
+        binding.heroIntelligenceS.text =
+            jsonObject.getJSONObject("powerstats")
+                .getString("intelligence")
+        binding.heroStrengthS.text =
+            jsonObject.getJSONObject("powerstats")
+                .getString("strength")
+
+        binding.heroSpeedS.text =
+            jsonObject.getJSONObject("powerstats")
+                .getString("speed")
+
+        binding.heroGenderS.text =
+            jsonObject.getJSONObject("appearance")
+                .getString("gender")
+        binding.heroRaceS.text =
+            jsonObject.getJSONObject("appearance")
+                .getString("race")
+        binding.heroHeightS.text =
+            jsonObject.getJSONObject("appearance")
+                .getJSONArray("height")[1].toString()
+
+        binding.heroPublisherS.text= jsonObject.getJSONObject("biography").getString("publisher")
     }
 
 

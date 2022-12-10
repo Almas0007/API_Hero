@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.SearchFragment">
+    tools:context=".fragments.SearchFragment"
+    android:id="@+id/searchFragmentID"
+    >
 
     <EditText
         android:id="@+id/getIDHero"
@@ -18,7 +20,9 @@
         android:inputType="number"
         android:textColor="@color/q_blue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
 
     <ImageButton
         android:id="@+id/buttonSearch"
@@ -30,4 +34,262 @@
         android:text="Button"
         app:layout_constraintStart_toEndOf="@+id/getIDHero"
         app:layout_constraintTop_toTopOf="@+id/getIDHero" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/searchFragmentInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/getIDHero"
+        app:layout_constraintTop_toBottomOf="@+id/getIDHero">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/heroImageS"
+            android:layout_width="225dp"
+            android:layout_height="225dp"
+
+            android:scaleType="fitXY"
+            android:src="@drawable/hero_image"
+            app:shapeAppearanceOverlay="@style/ImageStyle"
+
+            app:layout_constraintStart_toStartOf="@id/searchFragmentInformation"
+            app:layout_constraintTop_toTopOf="@id/searchFragmentInformation"
+            />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/softbold"
+            android:shadowColor="@color/q_nedoblack"
+            android:text="Name:"
+            app:layout_constraintStart_toStartOf="@+id/heroImageS"
+            app:layout_constraintTop_toBottomOf="@+id/heroImageS" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/softbold"
+            android:shadowColor="@color/q_nedoblack"
+            android:text="Power Characteristic:"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/softbold"
+            android:shadowColor="@color/q_nedoblack"
+            android:text="External Сharacteristics:"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/softbold"
+            android:shadowColor="@color/q_nedoblack"
+            android:text="Publisher:"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/supermolot"
+            android:shadowColor="@color/q_grey"
+            android:text="Intelligence:"
+            android:textColor="@color/q_grey"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/supermolot"
+            android:shadowColor="@color/q_grey"
+            android:text="Strength:"
+            android:textColor="@color/q_grey"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/supermolot"
+            android:shadowColor="@color/q_grey"
+            android:text="Speed:"
+            android:textColor="@color/q_grey"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/supermolot"
+            android:shadowColor="@color/q_grey"
+            android:text="Power:"
+            android:textColor="@color/q_grey"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/heroIntelligenceS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/supermolot"
+            android:textColor="@color/q_blue"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/heroStrengthS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/supermolot"
+            android:textColor="@color/q_blue"
+            app:layout_constraintStart_toStartOf="@+id/heroIntelligenceS"
+            app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/heroSpeedS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/supermolot"
+            android:textColor="@color/q_blue"
+            app:layout_constraintStart_toStartOf="@+id/heroStrengthS"
+            app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/heroPowerS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/supermolot"
+            android:textColor="@color/q_blue"
+            app:layout_constraintStart_toStartOf="@+id/heroSpeedS"
+            app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/heroGenderS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/supermolot"
+            android:textColor="@color/q_blue"
+            app:layout_constraintStart_toStartOf="@+id/heroPowerS"
+            app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+        <TextView
+            android:id="@+id/heroRaceS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/supermolot"
+            android:textColor="@color/q_blue"
+            app:layout_constraintStart_toStartOf="@+id/heroGenderS"
+            app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+        <TextView
+            android:id="@+id/heroHeightS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/supermolot"
+            android:textColor="@color/q_blue"
+            app:layout_constraintStart_toStartOf="@+id/heroRaceS"
+            app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+        <TextView
+            android:id="@+id/heroWeightS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/supermolot"
+            android:textColor="@color/q_blue"
+            app:layout_constraintStart_toStartOf="@+id/heroHeightS"
+            app:layout_constraintTop_toTopOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/supermolot"
+            android:shadowColor="@color/q_grey"
+            android:text="Race:"
+            android:textColor="@color/q_grey"
+            app:layout_constraintStart_toStartOf="@+id/textView15"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/supermolot"
+            android:shadowColor="@color/q_grey"
+            android:text="Height:"
+            android:textColor="@color/q_grey"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/supermolot"
+            android:shadowColor="@color/q_grey"
+            android:text="Gender:"
+            android:textColor="@color/q_grey"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/supermolot"
+            android:shadowColor="@color/q_grey"
+            android:text="Weight:"
+            android:textColor="@color/q_grey"
+            app:layout_constraintStart_toStartOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <TextView
+            android:id="@+id/heroNameS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/supermolot"
+            android:textColor="@color/q_yellow"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/heroPublisherS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/supermolot"
+            android:textColor="@color/q_blue"
+            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
