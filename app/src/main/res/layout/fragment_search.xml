@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SearchFragment">
+
+    <EditText
+        android:id="@+id/getIDHero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edit_text_style"
+        android:gravity="center"
+        android:hint="Enter the hero's ID..."
+        android:inputType="number"
+        android:textColor="@color/q_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonSearch"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/corner_style"
+        android:src="@drawable/icon_search"
+        android:text="Button"
+        app:layout_constraintStart_toEndOf="@+id/getIDHero"
+        app:layout_constraintTop_toTopOf="@+id/getIDHero" />
+</androidx.constraintlayout.widget.ConstraintLayout>
